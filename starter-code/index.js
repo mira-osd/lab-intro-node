@@ -19,17 +19,29 @@ class SortedList {
         throw new Error("OutOfBounds");
       }
     }
-    // à changer le max()
-    max(high) { 
-      if(high === this.items[pos]){ 
-        return this.items[high];
-      } else {
+  
+    max() { 
+      if (this.items.length === 0){
         throw new Error("EmptySortedList");
       }
+      return Math.max(...this.items);
+  
     }
-    min() {}
+    min() {
+      if (this.items.length === 0){
+        throw new Error("EmptySortedList");
+      }
+      return Math.min(...this.items);
+  
+    }
+
+    // à changer 
+    sum() {
+      this.items.reduce(function(accumulator, currentValue){
+        return accumulator + currentValue
+      })
+    }
     average() {}
-    sum() {}
   };
   
   module.exports = SortedList;
